@@ -1,3 +1,6 @@
+#! /usr/bin/env node
+console.log("console.log output")
+
 var fs = require('fs');
 var moment = require('moment');
 
@@ -11,7 +14,8 @@ for (var i = 0; i < numWeeks; i++) {
   var end = moment().add(i, 'weeks').endOf('isoWeek')
 
   var pathName = weekNumber + '  ' + start.format("MMM") + ' ' + start.format("DD") + ' - ' + end.format("MMM") + ' ' + end.format("DD");
-  var path = '2017/' + pathName;
+  // var path = '2017/' + pathName;
+  var path = pathName;
 
   fs.mkdir(path);
 
