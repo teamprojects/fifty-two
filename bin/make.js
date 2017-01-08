@@ -1,5 +1,4 @@
 #! /usr/bin/env node
-console.log("console.log output")
 
 var fs = require('fs');
 var moment = require('moment');
@@ -17,6 +16,6 @@ for (var i = 0; i < numWeeks; i++) {
   // var path = '2017/' + pathName;
   var path = pathName;
 
-  fs.mkdir(path);
+  fs.mkdirSync(path);
 
 }
