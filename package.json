@@ -1,6 +1,6 @@
 {
   "name": "fifty-two",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Make week directories",
   "main": "make.js",
   "scripts": {
