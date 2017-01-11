@@ -6,7 +6,7 @@ var moment = require('moment');
 var numWeeks = 52;
 var weekOne = moment('2017-01-02');
 
-for (var i = 0; i < numWeeks; i++) {
+for (var i = 1; i <= numWeeks; i++) {
 
   var weekNumber = i > 9 ? "" + i: "0" + i;
   var start = moment().add(i, 'weeks').startOf('isoWeek')
