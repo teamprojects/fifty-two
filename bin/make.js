@@ -9,8 +9,8 @@ var weekOne = moment('2017-01-02');
 for (var i = 1; i <= numWeeks; i++) {
 
   var weekNumber = i > 9 ? "" + i: "0" + i;
-  var start = moment().add(i, 'weeks').startOf('isoWeek')
-  var end = moment().add(i, 'weeks').endOf('isoWeek')
+  var start = moment().add((i - 1), 'weeks').startOf('isoWeek')
+  var end = moment().add((i -1), 'weeks').endOf('isoWeek')
 
   var pathName = weekNumber + '  ' + start.format("MMM") + ' ' + start.format("DD") + ' - ' + end.format("MMM") + ' ' + end.format("DD");
   // var path = '2017/' + pathName;
