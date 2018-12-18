@@ -1,21 +1,24 @@
 #! /usr/bin/env node
 
-var fs = require('fs');
-var moment = require('moment');
+var mkdirp = require('mkdirp');
+var d = require('date-fns');
 
-var numWeeks = 52;
-var weekOne = moment('2017-01-02');
+var year = process.argv[2]
+
+var week = new Date(parseInt(year),0,0);
+var numWeeks = d.getISOWeeksInYear(week);
 
 for (var i = 1; i <= numWeeks; i++) {
 
   var weekNumber = i > 9 ? "" + i: "0" + i;
-  var start = moment().add((i - 1), 'weeks').startOf('isoWeek')
-  var end = moment().add((i -1), 'weeks').endOf('isoWeek')
 
-  var pathName = weekNumber + '  ' + start.format("MMM") + ' ' + start.format("DD") + ' - ' + end.format("MMM") + ' ' + end.format("DD");
-  // var path = '2017/' + pathName;
-  var path = pathName;
+  var start = d.format(d.startOfISOWeek(week), 'MMM-DD');
+  var end = d.format(d.endOfISOWeek(week), 'MMM-DD');
 
-  fs.mkdirSync(path);
+  var dirName = weekNumber + '   ' + start + ' to ' + end;
+
+  mkdirp.sync(year + '/' + dirName);
+
+  week = d.addWeeks(week, 1);
 
 }
